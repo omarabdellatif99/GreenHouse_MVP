@@ -13,19 +13,32 @@ public class Interactable : MonoBehaviour, IInteractable
     public string InteractionPrompt => interactionPrompt;
 
     public Vector3 PromptOffset => promptOffset;
+    [SerializeField] private WebGLOutline outline;
 
     protected virtual void Awake()
     {
         initLayer = gameObject.layer;
     }
 
+    // void Start()
+    // {
+    //     TryGetComponent(out outline);
+    //     if (!outline)
+    //         outline = GetComponentInChildren<WebGLOutline>();
+    //     if (!outline)
+    //         outline = GetComponentInParent<WebGLOutline>();
+    // }
+
     public virtual void SetHighlighted(bool value)
     {
-        gameObject.layer = value ? outlineLayer : initLayer;
-        for (int i = 0; i < transform.childCount; i++)
-        {
-            transform.GetChild(i).gameObject.layer = value ? outlineLayer : initLayer;
-        }
+        if (!outline)
+            Debug.LogError($"{gameObject.name} doesn't have web outline.");
+        // gameObject.layer = value ? outlineLayer : initLayer;
+        outline.EnableOutline(value);
+        // for (int i = 0; i < transform.childCount; i++)
+        // {
+        //     transform.GetChild(i).gameObject.layer = value ? outlineLayer : initLayer;
+        // }
     }
     public virtual void Interact() {}
 }

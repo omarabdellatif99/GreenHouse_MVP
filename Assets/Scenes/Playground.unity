@@ -27633,6 +27633,7 @@ GameObject:
   - component: {fileID: 4484394940672785193}
   - component: {fileID: 3286704289669784631}
   - component: {fileID: 7952046473193449331}
+  - component: {fileID: 7952046473193449332}
   m_Layer: 7
   m_Name: CropA
   m_TagString: Untagged
@@ -28582,6 +28583,7 @@ GameObject:
   - component: {fileID: 433684396708456224}
   - component: {fileID: 1559297678309259326}
   - component: {fileID: 6225202822017989500}
+  - component: {fileID: 6225202822017989501}
   m_Layer: 7
   m_Name: CropC
   m_TagString: Untagged
@@ -31834,6 +31836,7 @@ GameObject:
   - component: {fileID: 7161746845728237973}
   - component: {fileID: 8125865492721104523}
   - component: {fileID: 8125865492721104524}
+  - component: {fileID: 8125865492721104525}
   m_Layer: 7
   m_Name: CropD
   m_TagString: Untagged
@@ -32681,6 +32684,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ControllStation
   interactionPrompt: '[E] Control Station'
   promptOffset: {x: 0, y: 0, z: 0}
+  outline: {fileID: 8790764560836290311}
 --- !u!65 &5626700936176620348
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -33333,6 +33337,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Cropbed
   interactionPrompt: '[E] Inspect'
   promptOffset: {x: 0, y: 0, z: 0}
+  outline: {fileID: 6225202822017989501}
   data:
     state: 0
     water: 0
@@ -33361,6 +33366,19 @@ MonoBehaviour:
   - {fileID: 6181079215576809597}
   - {fileID: 2115237600}
   - {fileID: 1315645520083203613}
+--- !u!114 &6225202822017989501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2379432327524092226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7f5de68d6eba404fa5f959c0617d454, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WebGLOutline
+  outlineMaterial: {fileID: 2100000, guid: bc3ea03df64bbd34eb70525f16c93b75, type: 2}
 --- !u!33 &6230869158506430640
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -34337,6 +34355,7 @@ GameObject:
   - component: {fileID: 5001800410165950987}
   - component: {fileID: 6255090502266332437}
   - component: {fileID: 7733848997095151577}
+  - component: {fileID: 7733848997095151578}
   m_Layer: 7
   m_Name: CropB
   m_TagString: Untagged
@@ -34913,6 +34932,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Cropbed
   interactionPrompt: '[E] Inspect'
   promptOffset: {x: 0, y: 0, z: 0}
+  outline: {fileID: 7733848997095151578}
   data:
     state: 1
     water: 10
@@ -34939,6 +34959,19 @@ MonoBehaviour:
   - {fileID: 4623613441678374248}
   - {fileID: 1999303465}
   - {fileID: 919143401}
+--- !u!114 &7733848997095151578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7090994895024837737}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7f5de68d6eba404fa5f959c0617d454, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WebGLOutline
+  outlineMaterial: {fileID: 2100000, guid: bc3ea03df64bbd34eb70525f16c93b75, type: 2}
 --- !u!33 &7743156316193743585
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -35276,6 +35309,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Cropbed
   interactionPrompt: '[E] Inspect'
   promptOffset: {x: 0, y: 0, z: 0}
+  outline: {fileID: 7952046473193449332}
   data:
     state: 0
     water: 10
@@ -35303,6 +35337,19 @@ MonoBehaviour:
   - {fileID: 3061630225756940820}
   - {fileID: 1741232292}
   - {fileID: 403675060}
+--- !u!114 &7952046473193449332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1817894871589213515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7f5de68d6eba404fa5f959c0617d454, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WebGLOutline
+  outlineMaterial: {fileID: 2100000, guid: bc3ea03df64bbd34eb70525f16c93b75, type: 2}
 --- !u!4 &7962272364821906896
 Transform:
   m_ObjectHideFlags: 0
@@ -35486,6 +35533,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Cropbed
   interactionPrompt: '[E] Inspect'
   promptOffset: {x: 0, y: 0, z: 0}
+  outline: {fileID: 8125865492721104525}
   data:
     state: 1
     water: 0
@@ -35514,6 +35562,19 @@ MonoBehaviour:
   - {fileID: 7358894824374281974}
   - {fileID: 2051182770}
   - {fileID: 414498981}
+--- !u!114 &8125865492721104525
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4927521277451667447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7f5de68d6eba404fa5f959c0617d454, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WebGLOutline
+  outlineMaterial: {fileID: 2100000, guid: bc3ea03df64bbd34eb70525f16c93b75, type: 2}
 --- !u!1 &8178205269810487517
 GameObject:
   m_ObjectHideFlags: 0
@@ -36991,6 +37052,7 @@ GameObject:
   - component: {fileID: 3881728457272330215}
   - component: {fileID: 3574784036023283360}
   - component: {fileID: 6871955619378340380}
+  - component: {fileID: 8790764560836290311}
   m_Layer: 7
   m_Name: Cube.054
   m_TagString: Untagged
@@ -36998,6 +37060,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &8790764560836290311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8790764560836290310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7f5de68d6eba404fa5f959c0617d454, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WebGLOutline
+  outlineMaterial: {fileID: 2100000, guid: bc3ea03df64bbd34eb70525f16c93b75, type: 2}
 --- !u!23 &8834508982481176782
 MeshRenderer:
   m_ObjectHideFlags: 0

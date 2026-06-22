@@ -22,5 +22,5 @@ MonoBehaviour:
   initNutrientRandomization: {x: 5, y: 7}
   initEnergyRandomization: {x: 3, y: 6}
   initClimateRandomization: {x: 2, y: 5}
-  initHealthRandomization: {x: 1, y: 3}
-  initYieldRandomization: {x: 0.5, y: 2}
+  initHealthRandomization: {x: 0.5, y: 2}
+  initYieldRandomization: {x: 0.5, y: 1.2}

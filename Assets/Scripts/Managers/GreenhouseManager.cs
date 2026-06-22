@@ -182,7 +182,9 @@ public class GreenhouseManager : MonoBehaviour
             configurationData.acitveHealthRange :
             configurationData.acitveYieldProjectionRange;
 
-        float valueToPutIn = reqSatisfiedVal % modules.Length;
+        float valueToPutIn = reqSatisfiedVal / (float)modules.Length;
+        Debug.Log($"reqSatisfiedVal: {reqSatisfiedVal} & modules.Length: {(float)modules.Length}");
+        Debug.Log($"Value to put in: {valueToPutIn}");
 
         foreach (var module in modules)
         {

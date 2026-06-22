@@ -72,6 +72,7 @@ public class UIManager : MonoBehaviour
     {
         IsUIOpened = false;
         inputs.cursorInputForLook = true;
+        inputs.SetCursorState(true);
         controlStationUI.DOFade(0.0f, 0.3f)
         .OnComplete(() =>
         {
@@ -122,6 +123,7 @@ public class UIManager : MonoBehaviour
     {
         IsUIOpened = false;
         inputs.cursorInputForLook = true;
+        inputs.SetCursorState(true);
         cropbedUI.DOFade(0.0f, 0.3f)
         .OnComplete(() =>
         {

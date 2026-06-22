@@ -71,4 +71,5 @@ public class InteractionController : MonoBehaviour
         }
         promptUI.Hide();
     }
+
 }
