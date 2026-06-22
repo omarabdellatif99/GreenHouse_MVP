@@ -22,6 +22,10 @@ public class Interactable : MonoBehaviour, IInteractable
     public virtual void SetHighlighted(bool value)
     {
         gameObject.layer = value ? outlineLayer : initLayer;
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            transform.GetChild(i).gameObject.layer = value ? outlineLayer : initLayer;
+        }
     }
     public virtual void Interact() {}
 }

@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 
@@ -6,7 +7,9 @@ public enum ModuleType
     Irrigation,
     Nutrient,
     Energy,
-    ClimateControl
+    ClimateControl,
+    Health,
+    YieldProjection
 }
 [CreateAssetMenu(menuName = "Scriptables/Module")]
 public class Module : ScriptableObject

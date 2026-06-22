@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class InteractionController : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class InteractionController : MonoBehaviour
     private void Update()
     {
         DetectInteractable();
+        DetectInteractInput();
     }
 
     private void DetectInteractable()
@@ -47,6 +49,15 @@ public class InteractionController : MonoBehaviour
         else
         {
             ClearCurrent();
+        }
+    }
+
+    private void DetectInteractInput()
+    {
+        if (currentInteractable == null) return;
+        if (Keyboard.current.eKey.wasPressedThisFrame)
+        {
+            currentInteractable.Interact();
         }
     }
 

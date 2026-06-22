@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 988220e39c130bf4a8ef2dbc084f76a8, type: 3}
+  m_Name: Configuration
+  m_EditorClassIdentifier: Assembly-CSharp::ConfigurationData
+  acitveWaterRange: 10
+  acitveNutrientsRange: 15
+  acitveEnergyRange: 12
+  acitveClimateRange: 9
+  acitveHealthRange: 10
+  acitveYieldProjectionRange: 5
+  initWaterRandomization: {x: 3, y: 5}
+  initNutrientRandomization: {x: 5, y: 7}
+  initEnergyRandomization: {x: 3, y: 6}
+  initClimateRandomization: {x: 2, y: 5}
+  initHealthRandomization: {x: 1, y: 3}
+  initYieldRandomization: {x: 0.5, y: 2}

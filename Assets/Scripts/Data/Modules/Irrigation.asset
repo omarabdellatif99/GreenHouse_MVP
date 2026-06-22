@@ -17,5 +17,5 @@ MonoBehaviour:
   nutrient: 0
   energy: 0
   climate: 0
-  health: 2
-  yieldProjection: 4
+  health: 0
+  yieldProjection: 3

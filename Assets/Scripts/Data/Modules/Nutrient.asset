@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82c32a8256404584ea19d51d2df72383, type: 3}
   m_Name: Nutrient
   m_EditorClassIdentifier: Assembly-CSharp::Module
-  moduleType: 0
+  moduleType: 1
   water: 0
   nutrient: 1
   energy: 0
   climate: 0
-  health: 3
-  yieldProjection: 6
+  health: 0
+  yieldProjection: 3
