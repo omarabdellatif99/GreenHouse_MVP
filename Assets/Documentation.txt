@@ -1,0 +1,38 @@
+**Please read this documentation carefully for all the instructions and code structures**
+
+Project structure:
+- Artwork (contains artwork for UI)
+- FarmCrops (farming assets)
+- Materials (contains materials)
+- Models (contains models)
+- Plugins (contains plugin for DOTween)
+- Prefabs (contains prefabs being used in the game)
+- Scenes (the main scene where all interaction and data system is done is "Playground" under this folder)
+- Scripts (contains all scripts below is the code structure)
+
+--- Base(these scripts acts as the base part of the project)
+----- ConfigurationData(configuration data scriptable that includes game settings)
+----- ControlStation
+----- Cropbed
+----- GameEvents
+----- IInteractable (interface class for interactions)
+----- Interactable (parent class for interactables)
+----- Module (module scriptable)
+
+--- Controllers
+----- InteractionController (this is the main part handling all interactions)
+
+--- Data (this includes all scriptables)
+
+
+CONFIGURATION DATA:
+
+This scriptable includes two type of information the first one is how much of the value to be for the module to consider it satisfied. For example, water is considered satisfied at range of 10.
+The second information is related to how randomly the values will be assigned initially like for each module, the value will be randomly chosen between these ranges.
+
+All attributes have models except health and yield projection so these attributes will be taken from available modules (i.e. climate, energy, irrigation & nutrient).
+The formulaes for these calculations are simple as when optimizing, we are setting each modules value to it's satisfied value (eg. water to 10) but for health and yield, we are basically dividing the satisfied value to the numbers of moduels available so we get the satisfied value collectively.
+
+
+CROPBED DATA:
+Each cropbed has it's own unique data that is hardcoded (for now) some of the cropbeds are already satisfied in some attributes and needs optimizing in some attributes.
