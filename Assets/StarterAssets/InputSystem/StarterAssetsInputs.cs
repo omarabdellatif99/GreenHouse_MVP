@@ -65,22 +65,15 @@ namespace StarterAssets
 		{
 			sprint = newSprintState;
 		}
-		
-		private void OnApplicationFocus(bool hasFocus)
-		{
-			if (!UIManager.Instance.IsUIOpened)
-			{
-				// Debug.Log("Locking cursor.");
-				SetCursorState(cursorLocked);
-			}
-			else
-			{
-				// Debug.Log("Unlocking cursor.");
-				SetCursorState(false);
-			}
-		}
 
-		public void SetCursorState(bool newState)
+        private void OnApplicationFocus(bool hasFocus)
+        {
+            if (!Application.isPlaying) return;
+
+            SetCursorState(hasFocus && cursorLocked);
+        }
+
+        public void SetCursorState(bool newState)
 		{
 			Cursor.lockState = newState ? CursorLockMode.Locked : CursorLockMode.None;
 		}
