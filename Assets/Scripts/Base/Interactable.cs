@@ -13,7 +13,7 @@ public class Interactable : MonoBehaviour, IInteractable
     public string InteractionPrompt => interactionPrompt;
 
     public Vector3 PromptOffset => promptOffset;
-    [SerializeField] private WebGLOutline outline;
+    [SerializeField] protected WebGLOutline outline;
 
     protected virtual void Awake()
     {

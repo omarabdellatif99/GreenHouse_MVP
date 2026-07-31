@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -28,7 +29,7 @@ public enum CropState
 public class Cropbed : Interactable
 {
     public CropbedData data;
-    // public ConfigurationData configurationData;
+    private GreenhouseManager greenHouseManager;
 
     public Material[] cropbedMats;
 
@@ -42,6 +43,7 @@ public class Cropbed : Interactable
     {
         base.Awake();
         meshRenderer = GetComponent<MeshRenderer>();
+        greenHouseManager = GetComponentInParent<GreenhouseManager>();
     }
     private void OnEnable()
     {
@@ -52,8 +54,9 @@ public class Cropbed : Interactable
         GameEvents.OnCalculateCropbeds -= CalculateData;
     }
 
-    private void Start()
+    private IEnumerator Start()
     {
+        yield return new WaitForSeconds(1.0f);
         CalculateData();
         RefreshState();
     }
@@ -67,22 +70,22 @@ public class Cropbed : Interactable
 
     private void CalculateData()
     {
-        foreach (Module module in GreenhouseManager.Instance.modules)
+        foreach (Module module in greenHouseManager.modules)
         {
             if (!IsValueChanged(module))
                 continue;
 
-            if (!GreenhouseManager.Instance.IsValueSatisfied(data.water, CropAttributeType.Water))
+            if (!GreenHouseHelper.IsValueSatisfied(data.water, CropAttributeType.Water))
                 data.water += module.water;
-            if (!GreenhouseManager.Instance.IsValueSatisfied(data.nutrients, CropAttributeType.Nutrients))
+            if (!GreenHouseHelper.IsValueSatisfied(data.nutrients, CropAttributeType.Nutrients))
                 data.nutrients += module.nutrient;
-            if (!GreenhouseManager.Instance.IsValueSatisfied(data.energy, CropAttributeType.Energy))
+            if (!GreenHouseHelper.IsValueSatisfied(data.energy, CropAttributeType.Energy))
                 data.energy += module.energy;
-            if (!GreenhouseManager.Instance.IsValueSatisfied(data.climate, CropAttributeType.Climate))
+            if (!GreenHouseHelper.IsValueSatisfied(data.climate, CropAttributeType.Climate))
                 data.climate += module.climate;
-            if (!GreenhouseManager.Instance.IsValueSatisfied(data.health, CropAttributeType.Health))
+            if (!GreenHouseHelper.IsValueSatisfied(data.health, CropAttributeType.Health))
                 data.health += module.health;
-            if (!GreenhouseManager.Instance.IsValueSatisfied(data.yieldProjection, CropAttributeType.Yield))
+            if (!GreenHouseHelper.IsValueSatisfied(data.yieldProjection, CropAttributeType.Yield))
                 data.yieldProjection += module.yieldProjection;
 
             // Add this module to scanner
@@ -97,7 +100,7 @@ public class Cropbed : Interactable
             };
         }
 
-        data.state = GreenhouseManager.Instance.IsCropbedActive(data) ? CropState.Active : CropState.Dead;
+        data.state = GreenHouseHelper.IsCropbedActive(data) ? CropState.Active : CropState.Dead;
         RefreshState();
     }
 

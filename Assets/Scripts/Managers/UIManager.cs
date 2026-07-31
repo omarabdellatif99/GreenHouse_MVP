@@ -36,20 +36,28 @@ public class UIManager : MonoBehaviour
     [Header("Crop Bed UI")]
     public CropbedUI[] cropbedStatsUI;
 
+    [SerializeField] private TextMeshProUGUI alertMsg;
+    private bool isAlertInAction = false;
+
     public bool IsUIOpened { get; private set; } = false;
+    public ConfigurationData configurationData;
+
+    private GreenhouseManager currentGreenHouse;
     private StarterAssetsInputs inputs;
 
     private void Awake()
     {
         Instance = this;
+        GreenHouseHelper.Initialize(configurationData);
     }
     void Start()
     {
         inputs = FindAnyObjectByType<StarterAssetsInputs>();
     }
 
-    public void ShowControlStationUI()
+    public void ShowControlStationUI(GreenhouseManager greenhouseManager)
     {
+        currentGreenHouse = greenhouseManager;
         controlStationUI.gameObject.SetActive(true);
         controlStationUI.DOFade(1.0f, 0.3f);
         UpdateControlStationUI();
@@ -59,17 +67,18 @@ public class UIManager : MonoBehaviour
         IsUIOpened = true;
     }
 
-    public void UpdateControlStationUI()
+    private void UpdateControlStationUI()
     {
         foreach (var moduleUI in moduleStatsUI)
         {
-            moduleUI.valueTxt.text = GreenhouseManager.Instance.GetModuleValue(moduleUI.moduleType).ToString("F1");
-            moduleUI.optimizeButton.SetActive(!GreenhouseManager.Instance.IsModuleOptimized(moduleUI.moduleType));
+            moduleUI.valueTxt.text = currentGreenHouse.GetModuleValue(moduleUI.moduleType).ToString("F1");
+            moduleUI.optimizeButton.SetActive(!currentGreenHouse.IsModuleOptimized(moduleUI.moduleType));
         }
     }
 
     public void HideControlStationUI()
     {
+        currentGreenHouse = null;
         IsUIOpened = false;
         inputs.cursorInputForLook = true;
         inputs.SetCursorState(true);
@@ -111,8 +120,8 @@ public class UIManager : MonoBehaviour
                     break;
             }
             cropbedUI.valueTxt.text = value.ToString("F1");
-            cropbedUI.satisfiedText.text = GreenhouseManager.Instance.IsValueSatisfied(value, cropbedUI.attributeType) ? "Satisfied" : "Not Satisfied";
-            cropbedUI.satisfiedText.color = GreenhouseManager.Instance.IsValueSatisfied(value, cropbedUI.attributeType) ? Color.green : Color.red;
+            cropbedUI.satisfiedText.text = GreenHouseHelper.IsValueSatisfied(value, cropbedUI.attributeType) ? "Satisfied" : "Not Satisfied";
+            cropbedUI.satisfiedText.color = GreenHouseHelper.IsValueSatisfied(value, cropbedUI.attributeType) ? Color.green : Color.red;
         }
         inputs.SetCursorState(false);
         inputs.cursorInputForLook = false;
@@ -134,7 +143,30 @@ public class UIManager : MonoBehaviour
     public void OptimizeButtonCallback(string module)
     {
         ModuleType moduleType = (ModuleType)Enum.Parse(typeof(ModuleType), module);
-        GreenhouseManager.Instance.OptimizeModule(moduleType);
+        currentGreenHouse.OptimizeModule(moduleType);
         UpdateControlStationUI();
+    }
+
+    public void ShowAlertMessage(string msg)
+    {
+        if (isAlertInAction) return;
+        isAlertInAction = true;
+
+        alertMsg.alpha = 0f;
+        alertMsg.text = msg;
+        alertMsg.DOFade(1.0f, 0.3f)
+            .OnComplete(() =>
+            {
+                Invoke(nameof(FadeAlertAway), 0.6f);
+            });
+    }
+
+    private void FadeAlertAway()
+    {
+        alertMsg.DOFade(0.0f, 0.3f)
+            .OnComplete(() =>
+            {
+                isAlertInAction = false;
+            });
     }
 }

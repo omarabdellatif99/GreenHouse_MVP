@@ -13,19 +13,19 @@ public class GreenhouseState
 
 public class GreenhouseManager : MonoBehaviour
 {
-    public static GreenhouseManager Instance;
     public ConfigurationData configurationData;
     public GreenhouseState currentState;
     public Module[] modules;
 
-    void Awake()
-    {
-        Instance = this;
-    }
+    public bool randomizeModules = true;
+
 
     void Start()
     {
-        RandomizeModules();
+        if (randomizeModules)
+            RandomizeModules();
+        else
+            OptimizeAllModules();
         RefreshCurrentState();
     }
 
@@ -52,8 +52,15 @@ public class GreenhouseManager : MonoBehaviour
             module.yieldProjection = Random.Range(configurationData.initYieldRandomization.x, configurationData.initYieldRandomization.y);
         }
     }
-
-
+    private void OptimizeAllModules()
+    {
+        foreach (var module in modules)
+        {
+            OptimizeModule(module.moduleType);
+        }
+        OptimizeModule(ModuleType.Health);
+        OptimizeModule(ModuleType.YieldProjection);
+    }
     public void RefreshCurrentState()
     {
         currentState = new GreenhouseState();
@@ -66,37 +73,6 @@ public class GreenhouseManager : MonoBehaviour
             currentState.health += module.health;
             currentState.yieldProjection += module.yieldProjection;
         }
-    }
-
-
-    public bool IsValueSatisfied(float value, CropAttributeType attributeType)
-    {
-        switch (attributeType)
-        {
-            case CropAttributeType.Water:
-                return value >= configurationData.acitveWaterRange;
-            case CropAttributeType.Nutrients:
-                return value >= configurationData.acitveNutrientsRange;
-            case CropAttributeType.Energy:
-                return value >= configurationData.acitveEnergyRange;
-            case CropAttributeType.Climate:
-                return value >= configurationData.acitveClimateRange;
-            case CropAttributeType.Health:
-                return value >= configurationData.acitveHealthRange;
-            case CropAttributeType.Yield:
-                return value >= configurationData.acitveYieldProjectionRange;
-        }
-        return false;
-    }
-
-    public bool IsCropbedActive(CropbedData data)
-    {
-        return (data.water >= configurationData.acitveWaterRange &&
-            data.nutrients >= configurationData.acitveNutrientsRange &&
-            data.energy >= configurationData.acitveEnergyRange &&
-            data.climate >= configurationData.acitveClimateRange &&
-            data.health >= configurationData.acitveHealthRange &&
-            data.yieldProjection >= configurationData.acitveYieldProjectionRange);
     }
 
     public bool IsModuleOptimized(ModuleType cropAttributeType)
