@@ -29402,6 +29402,7 @@ MonoBehaviour:
     climate: 9
     health: 0
     yieldProjection: 5
+  greenHouseManager: {fileID: 931473977}
   cropbedMats:
   - {fileID: 2100000, guid: 4bab3c7e748eb4148a393751a523147c, type: 2}
   - {fileID: 2100000, guid: 6abfe52c600868e40a47ae6089ecf01c, type: 2}
@@ -29691,10 +29692,10 @@ Transform:
   m_Children:
   - {fileID: 471170209}
   - {fileID: 1998046538}
-  - {fileID: 1670211372}
-  - {fileID: 1273348715}
-  - {fileID: 2010216107}
   - {fileID: 915338097}
+  - {fileID: 1670211372}
+  - {fileID: 2010216107}
+  - {fileID: 1273348715}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: -89.873, z: 0}
 --- !u!114 &931473977
@@ -36500,12 +36501,13 @@ MonoBehaviour:
   outline: {fileID: 1166013005}
   data:
     state: 0
-    water: 10
+    water: 4
     nutrients: 0
-    energy: 12
+    energy: 2
     climate: 0
-    health: 10
+    health: 5
     yieldProjection: 0
+  greenHouseManager: {fileID: 2072478393}
   cropbedMats:
   - {fileID: 2100000, guid: 4bab3c7e748eb4148a393751a523147c, type: 2}
   - {fileID: 2100000, guid: 6abfe52c600868e40a47ae6089ecf01c, type: 2}
@@ -47947,10 +47949,11 @@ MonoBehaviour:
     state: 0
     water: 0
     nutrients: 0
-    energy: 12
-    climate: 9
+    energy: 3
+    climate: 6
     health: 0
     yieldProjection: 0
+  greenHouseManager: {fileID: 2072478393}
   cropbedMats:
   - {fileID: 2100000, guid: 4bab3c7e748eb4148a393751a523147c, type: 2}
   - {fileID: 2100000, guid: 6abfe52c600868e40a47ae6089ecf01c, type: 2}
@@ -51678,6 +51681,7 @@ MonoBehaviour:
     climate: 9
     health: 0
     yieldProjection: 0
+  greenHouseManager: {fileID: 931473977}
   cropbedMats:
   - {fileID: 2100000, guid: 4bab3c7e748eb4148a393751a523147c, type: 2}
   - {fileID: 2100000, guid: 6abfe52c600868e40a47ae6089ecf01c, type: 2}
@@ -59277,12 +59281,13 @@ MonoBehaviour:
   outline: {fileID: 1930848334}
   data:
     state: 1
-    water: 10
+    water: 4
     nutrients: 0
     energy: 0
-    climate: 9
+    climate: 6
     health: 0
-    yieldProjection: 5
+    yieldProjection: 2
+  greenHouseManager: {fileID: 2072478393}
   cropbedMats:
   - {fileID: 2100000, guid: 4bab3c7e748eb4148a393751a523147c, type: 2}
   - {fileID: 2100000, guid: 6abfe52c600868e40a47ae6089ecf01c, type: 2}
@@ -60146,11 +60151,12 @@ MonoBehaviour:
   data:
     state: 1
     water: 0
-    nutrients: 15
+    nutrients: 2
     energy: 0
     climate: 0
-    health: 10
+    health: 4
     yieldProjection: 0
+  greenHouseManager: {fileID: 2072478393}
   cropbedMats:
   - {fileID: 2100000, guid: 4bab3c7e748eb4148a393751a523147c, type: 2}
   - {fileID: 2100000, guid: 6abfe52c600868e40a47ae6089ecf01c, type: 2}
@@ -61506,6 +61512,7 @@ MonoBehaviour:
     climate: 0
     health: 10
     yieldProjection: 0
+  greenHouseManager: {fileID: 931473977}
   cropbedMats:
   - {fileID: 2100000, guid: 4bab3c7e748eb4148a393751a523147c, type: 2}
   - {fileID: 2100000, guid: 6abfe52c600868e40a47ae6089ecf01c, type: 2}
@@ -62017,6 +62024,7 @@ MonoBehaviour:
     climate: 0
     health: 10
     yieldProjection: 0
+  greenHouseManager: {fileID: 931473977}
   cropbedMats:
   - {fileID: 2100000, guid: 4bab3c7e748eb4148a393751a523147c, type: 2}
   - {fileID: 2100000, guid: 6abfe52c600868e40a47ae6089ecf01c, type: 2}
@@ -64534,9 +64542,9 @@ Transform:
   m_Children:
   - {fileID: 1925216440}
   - {fileID: 1166013010}
+  - {fileID: 1930848339}
   - {fileID: 1565711339}
   - {fileID: 1947520804}
-  - {fileID: 1930848339}
   - {fileID: 613140434}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: -89.873, z: 0}

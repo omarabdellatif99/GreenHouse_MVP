@@ -16,12 +16,14 @@ public class GreenhouseManager : MonoBehaviour
     public ConfigurationData configurationData;
     public GreenhouseState currentState;
     public Module[] modules;
+    private Cropbed[] cropbeds;
 
     public bool randomizeModules = true;
 
 
     void Start()
     {
+        GatherCropbeds();
         if (randomizeModules)
             RandomizeModules();
         else
@@ -56,10 +58,10 @@ public class GreenhouseManager : MonoBehaviour
     {
         foreach (var module in modules)
         {
-            OptimizeModule(module.moduleType);
+            OptimizeModule(module.moduleType, false);
         }
-        OptimizeModule(ModuleType.Health);
-        OptimizeModule(ModuleType.YieldProjection);
+        OptimizeModule(ModuleType.Health, false);
+        OptimizeModule(ModuleType.YieldProjection, false);
     }
     public void RefreshCurrentState()
     {
@@ -95,7 +97,7 @@ public class GreenhouseManager : MonoBehaviour
         return false;
     }
 
-    public void OptimizeModule(ModuleType moduleType)
+    public void OptimizeModule(ModuleType moduleType, bool invokeAction = true)
     {
         switch (moduleType)
         {
@@ -118,7 +120,8 @@ public class GreenhouseManager : MonoBehaviour
                 SetUniversalAttribute(CropAttributeType.Yield);
                 break;
         }
-        GameEvents.OnCalculateCropbeds?.Invoke();
+        if (invokeAction) 
+            CalculateCropbeds();
         RefreshCurrentState();
     }
 
@@ -175,4 +178,16 @@ public class GreenhouseManager : MonoBehaviour
         }
     }
 
+    private void GatherCropbeds()
+    {
+        cropbeds = GetComponentsInChildren<Cropbed>();
+    }
+
+    private void CalculateCropbeds()
+    {
+        foreach (var cropbed in cropbeds)
+        {
+            cropbed.CalculateData();
+        }
+    }
 }

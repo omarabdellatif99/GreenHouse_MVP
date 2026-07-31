@@ -45,14 +45,6 @@ public class Cropbed : Interactable
         meshRenderer = GetComponent<MeshRenderer>();
         greenHouseManager = GetComponentInParent<GreenhouseManager>();
     }
-    private void OnEnable()
-    {
-        GameEvents.OnCalculateCropbeds += CalculateData;
-    }
-    private void OnDisable()
-    {
-        GameEvents.OnCalculateCropbeds -= CalculateData;
-    }
 
     private IEnumerator Start()
     {
@@ -68,7 +60,7 @@ public class Cropbed : Interactable
     }
 
 
-    private void CalculateData()
+    public void CalculateData()
     {
         foreach (Module module in greenHouseManager.modules)
         {
