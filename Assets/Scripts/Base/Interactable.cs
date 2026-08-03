@@ -31,10 +31,8 @@ public class Interactable : MonoBehaviour, IInteractable
 
     public virtual void SetHighlighted(bool value)
     {
-        if (!outline)
-            Debug.LogError($"{gameObject.name} doesn't have web outline.");
         // gameObject.layer = value ? outlineLayer : initLayer;
-        outline.EnableOutline(value);
+        outline?.EnableOutline(value);
         // for (int i = 0; i < transform.childCount; i++)
         // {
         //     transform.GetChild(i).gameObject.layer = value ? outlineLayer : initLayer;

@@ -35,14 +35,13 @@ public class Cropbed : Interactable
 
     public GameObject[] foliage;
 
-    private MeshRenderer meshRenderer;
+    public MeshRenderer meshRenderer;
 
     private Dictionary<ModuleType, CropbedData> scannedModules = new();
 
     protected override void Awake()
     {
         base.Awake();
-        meshRenderer = GetComponent<MeshRenderer>();
         greenHouseManager = GetComponentInParent<GreenhouseManager>();
     }
 
