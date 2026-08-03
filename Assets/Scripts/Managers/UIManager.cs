@@ -142,6 +142,7 @@ public class UIManager : MonoBehaviour
 
     public void OptimizeButtonCallback(string module)
     {
+        AudioManager.Instance.PlaySFX();
         ModuleType moduleType = (ModuleType)Enum.Parse(typeof(ModuleType), module);
         currentGreenHouse.OptimizeModule(moduleType);
         UpdateControlStationUI();

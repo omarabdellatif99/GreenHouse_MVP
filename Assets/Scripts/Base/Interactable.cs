@@ -38,5 +38,8 @@ public class Interactable : MonoBehaviour, IInteractable
         //     transform.GetChild(i).gameObject.layer = value ? outlineLayer : initLayer;
         // }
     }
-    public virtual void Interact() {}
+    public virtual void Interact()
+    {
+        AudioManager.Instance.PlaySFX();
+    }
 }

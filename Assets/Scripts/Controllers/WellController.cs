@@ -14,6 +14,7 @@ public class WellController : Interactable
 
     public void StartWell()
     {
+        AudioManager.Instance.StartWaterSound();
         handleT.DORotate(new Vector3(360f, 0f, 0f), 2.0f, RotateMode.FastBeyond360)
             .SetRelative(true)
             .SetEase(Ease.Linear)
