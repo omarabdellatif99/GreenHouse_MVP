@@ -45,9 +45,9 @@ public class Cropbed : Interactable
         greenHouseManager = GetComponentInParent<GreenhouseManager>();
     }
 
-    private IEnumerator Start()
+    protected override void Initialize()
     {
-        yield return new WaitForSeconds(1.0f);
+        base.Initialize();
         CalculateData();
         RefreshState();
     }

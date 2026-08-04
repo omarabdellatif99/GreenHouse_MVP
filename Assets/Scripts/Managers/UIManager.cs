@@ -153,6 +153,7 @@ public class UIManager : MonoBehaviour
         if (isAlertInAction) return;
         isAlertInAction = true;
 
+        alertMsg.gameObject.SetActive(true);
         alertMsg.alpha = 0f;
         alertMsg.text = msg;
         alertMsg.DOFade(1.0f, 0.3f)
@@ -168,6 +169,7 @@ public class UIManager : MonoBehaviour
             .OnComplete(() =>
             {
                 isAlertInAction = false;
+                alertMsg.gameObject.SetActive(false);
             });
     }
 }
